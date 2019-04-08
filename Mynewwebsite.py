@@ -5,8 +5,9 @@ Created on Sat Apr  6 20:23:39 2019
 @author: georgin
 """
 
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 import logging
+import mail_api_example2
 
 flask_app = Flask(__name__)
 
@@ -35,6 +36,15 @@ def show2():
 @flask_app.route('/form')
 def form():
     return render_template('form.html')
+
+@flask_app.route('/submit',methods=['POST'])
+def email():
+    if request.method == 'POST':
+        country = request.form['countries']
+        contact = request.form['s']
+        message = request.form['m']
+        mail_api_example2.sendmail(country,contact,message)
+    return render_template('submit.html',value=contact)
 
 logger.info('STARTING APP, TRY IT OUT!!!')
 
