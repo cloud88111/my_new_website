@@ -1,9 +1,28 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-	<title>Index</title>
+    <style>
+        * {
+	    background-color: black;
+            margin: 0;
+            padding: 0;
+        }
+        .imgbox {
+            display: grid;
+            height: 100%;
+        }
+        .center-fit {
+            max-width: 100%;
+            max-height: 100vh;
+            margin: auto;
+        }
+    </style>
 </head>
-<body class = "image-class">
-	<img src="static/slide-31-1024 (1).jpg"/>
+<body class = "body-style">
+<div class="imgbox">
+<a href="http://localhost:5000/after" class="center-fit">
+    <img class="center-fit" src='static/before.jpg'>
+</a>
+</div>
 </body>
 </html>

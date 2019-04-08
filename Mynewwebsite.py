@@ -10,7 +10,6 @@ import logging
 
 flask_app = Flask(__name__)
 
-#CONFIGURING LOGGING
 logger = logging.getLogger('my_logger')
 logger.setLevel(logging.DEBUG)
 formatter = logging.Formatter('%(asctime)s - %(message)s')
@@ -25,14 +24,18 @@ fh.setLevel(logging.DEBUG)
 fh.setFormatter(formatter)
 logger.addHandler(fh)
 
-"""def hello_someone(name):
-    return render_template("hello.html", name=name.title())"""
-
 @flask_app.route('/')
-@flask_app.route("/index")
 def show():
+    return render_template('index.html')
+
+@flask_app.route('/after')
+def show2():
     return render_template('index2.html')
 
+@flask_app.route('/form')
+def form():
+    return render_template('form.html')
+
 logger.info('STARTING APP, TRY IT OUT!!!')
-  
+
 flask_app.run(debug=True, use_reloader=True)
